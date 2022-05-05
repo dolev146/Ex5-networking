@@ -23,15 +23,14 @@
 // Checksum algo
 unsigned short calculate_checksum(unsigned short * paddress, int len);
 
-#define SOURCE_IP "192.168.56.7" // my ip 
+#define SOURCE_IP "127.0.0.1" // Source IP address
 // i.e the gateway or ping to google.com for their ip-address
-#define DESTINATION_IP "142.250.185.110" // google.com
+#define DESTINATION_IP "8.8.4.4" // Destination IP address
 
 
 
 int main ()
 {
-    //struct ip iphdr; // IPv4 header
     struct icmp icmphdr; // ICMP-header
     char data[IP_MAXPACKET] = "This is the ping.\n";
 
@@ -62,7 +61,7 @@ int main ()
     char packet[IP_MAXPACKET];
 
     // Next, ICMP header
-    memcpy ((packet + IP4_HDRLEN), &icmphdr, ICMP_HDRLEN);
+    memcpy ((packet), &icmphdr, ICMP_HDRLEN);
 
     // After ICMP header, add the ICMP data.
     memcpy (packet + IP4_HDRLEN + ICMP_HDRLEN, data, datalen);
