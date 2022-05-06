@@ -31,6 +31,17 @@ unsigned short calculate_checksum(unsigned short * paddress, int len);
 
 int main ()
 {
+    printf(R"EOF(
+ _______________________________________________________________________
+|[] AmigaShell                                                    |F]|!"|
+|"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""|"|
+|12.Workbench:> cd itz:asc                                            | |
+|12.Work:Iltzu/Asc> ed shell01.asc                                    | |
+|                                                                     | |
+|                                                                     |_|
+|_____________________________________________________________________|/|
+)EOF");
+
     struct icmp icmphdr; // ICMP-header
     char data[IP_MAXPACKET] = "This is the ping.\n";
 
